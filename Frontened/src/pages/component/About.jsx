@@ -19,7 +19,7 @@ function About() {
           
         </div>
         <div className="flex justify-center p-4 m-4">
-          <Link to="/Contactus" className="bg-blue-900  text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition">
+          <Link to="/Contactus" className="bg-blue-900  text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             {/* <button className="bg-blue-900 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"> */}
             Contact Us
           {/* </button> */}

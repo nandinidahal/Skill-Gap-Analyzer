@@ -15,13 +15,14 @@ function Contactus() {
   const [email, setEmail] = useState("");
   const [numb, setNumb] = useState("");
   const [message, setMessage] = useState("");
+  const [address, setAddress]=useState("");
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     let formIsValid = true;
     let Error = "";
 
-    if (!name || !email || !numb || !message) {
+    if (!name || !email || !numb || !message ||!address) {
       alert("All the fields are required!");
       return;
     }
@@ -43,6 +44,7 @@ function Contactus() {
       setEmail("");
       setNumb("");
       setMessage("");
+      setAddress("");
     } else {
       alert(Error);
     }
@@ -92,11 +94,13 @@ function Contactus() {
                   Phone Number<span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   value={numb}
                   onChange={(e) => setNumb(e.target.value)}
                   className="mt-2 w-full border border-gray-300   px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter Number"
+                  pattern="[0-9]*"
+                  inputMode="numeric"
                 />
               </div>
 
@@ -111,6 +115,20 @@ function Contactus() {
                   className="mt-2  w-full border px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter Email"
                 />
+              </div>
+
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  Address<span className="text-red-500">*</span>
+                </label>
+                <input
+                type="text"
+                value={address}
+                onChange={(e)=>setAddress(e.target.value)}
+                className="mt-2 w-full border px-3 py-2 rounded-xl focus:outline-none focus:ring-blue-500"
+                placeholder="Enter Address"
+                />
+                
               </div>
 
               {/* Message Full Width */}
@@ -140,7 +158,7 @@ function Contactus() {
           {/* </div> */}
         </div>
 
-        <div className="relative  pt-16 pb-12 px-4 sm:px-6 lg:px-20 bg-blue-900 cursor-pointer">
+        <div className="relative lg:mt-20 pt-16 pb-12 px-4 sm:px-6 lg:px-20 bg-blue-900 cursor-pointer">
           {/* Info columns */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mt-6">
             <div className="flex flex-col justify-center items-center">
